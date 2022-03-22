@@ -1,0 +1,28 @@
+create database company;
+use company;
+create table regions(Region_id int  primary key,Region_name varchar(20));
+create table  countries(Country_id int primary key,Country_name varchar(20),Region_id int,foreign key(Region_id) references regions(Region_id)); 
+create table locations(Location_id int primary key,Street_address varchar(50),Postal_code int,City varchar(20),State_province varchar(20),Country_id int,foreign key(Country_id) references countries(Country_id));
+create table departments(department_id int primary key,department_name varchar(15),location_id int,foreign key(Location_id) references locations(Location_id));
+create table jobs(job_id int primary key,job_title varchar(15),min_salary int,max_salary int);
+create table employees(employee_id int primary key,first_name varchar(20),last_name varchar(15),email varchar(20),phone_number int,hire_date date,job_id int,salary int,manager_id int,department_id int,foreign key(job_id) references jobs(job_id),foreign key(department_id) references departments(department_id),foreign key(manager_id) references employees(employee_id));
+create table dependents(Dependent_id int(10),First_name varchar(20),Last_name varchar(20),Relationship varchar(20),employee_id int ,foreign key(employee_id) references employees(employee_id));
+alter table countries modify Region_id int not null;
+alter table locations modify Country_id int not null;
+alter table employees modify job_id int not null;
+alter table dependents modify employee_id int not null; 
+desc regions;
+desc countries;
+desc locations;
+desc departments;
+desc jobs;
+desc employees;
+desc dependents;
+select * from employees;
+alter table departments rename Dept;
+desc Dept;
+alter table employees modify salary smallint;
+desc employees;
+alter table employees add Commission varchar(15);
+desc employees;
+
