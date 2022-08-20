@@ -1,0 +1,15 @@
+import numpy as np
+R1 = int(input("Enter the no of rows:"))
+C1 = int(input("Enter the no of coloumn:"))
+print("Enter the entries in a single line(sepearated by space): ")
+entries = list(map(int, input().split()))
+matrix_1 = np.array(entries).reshape(R1,C1)
+print("Matrix_1: \n",matrix_1)
+
+
+R2 = int(input("Enter the no of rows:"))
+C2= int(input("Enter the no of coloumn:"))
+print("Enter the entries in a single line(sepearated by space): ")
+entries = list(map(int, input().split()))
+matrix_2 = np.array(entries).reshape(R2,C2)
+print("matrix_2: \n",matrix_2)
